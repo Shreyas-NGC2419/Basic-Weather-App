@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="search-container">
+        <form action="/weather" method="post">
+            <label for="cityname">Enter your City:</label>
+            <input type="text" id="cityname" name="cityname" placeholder="e.g., Vasco Da Gama">
+            <input type="submit" id="submitbtn">
+        </form>
+    </div>
+    <div class="main-container" id="main-container">
+        <h2>
+            <%= climate.name ? `${climate.name}, ${climate.sys?.country || '' }` : "" %>
+        </h2>
+        <div class="img-container">
+            <% const weatherMain=climate.weather?.[0]?.main %>
+                <img src="/<%= imgmap.get(climate.weather?.[0]?.main) || '' %>" alt="weather_img">
+        </div>
+        <div class="info-container">
+            <div class="temp-container">
+                <h1>
+                    <%= climate.main?.temp !==undefined ? climate.main.temp : "" %>°C
+                </h1>
+                <h4>Feels like: <%= climate.main?.feels_like !==undefined ? climate.main.feels_like : "" %>°C
+                </h4>
+            </div>
+            <h2>
+                <%= climate.weather?.[0]?.description !==undefined ? titleCase(climate.weather[0].description) : "" %>
+            </h2>
+        </div>
+        <div class="info-grid">
+            <h4>Min. Temperature: <%= climate.main?.temp_min !==undefined ? climate.main.temp_min : "" %>°C
+            </h4>
+            <h4>Max. Temperature: <%= climate.main?.temp_max !==undefined ? climate.main.temp_max : "" %>°C
+            </h4>
+            <h4>Humidity: <%= climate.main?.humidity !==undefined ? climate.main.humidity : "" %>%
+            </h4>
+            <h4>Wind Speed: <%= climate.wind?.speed !==undefined ? climate.wind.speed : "" %> km/h
+            </h4>
+            <h4>Pressure: <%= climate.main?.pressure !==undefined ? climate.main.pressure : "" %>hpa
+            </h4>
+        </div>
+    </div>
+</body>
+
+</html>

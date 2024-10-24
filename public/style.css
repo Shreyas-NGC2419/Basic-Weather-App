@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --container_color:slategray;
+    --container_font_color:white;
+    --box_shadow_color:coral;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: cursive;
+    color: mistyrose;
+    background-image: linear-gradient(135deg, gray , rgb(209, 84, 84));
+    box-shadow: inset 1px 0px 200px cornflowerblue;
+}
+.main-container{
+    margin-top: 3em;
+    max-height: 80vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 1em;
+    background-color: var(--container_color);
+    color: var(--container_font_color);
+    box-shadow: 0px 0px 50px var(--box_shadow_color);
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+
+.img-container{
+    height: 40%;
+    width:100%;
+    box-shadow: 0px 0px 10px lightslategray;
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 0.5em 0;
+}
+.img-container img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-position: center;
+    /* scale: 1.5; */
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:0.75em;
+}
+
+.temp-container{
+    display: flex;
+    gap:2em;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.info-grid{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 1em 2em;
+    margin-top: 2em;
+}
+
+.search-container{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+}
+
+.search-container #cityname{
+    height: 3em;
+    width: 21em;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 2px 5px;
+}
+
+
+.search-container #submitbtn{
+    height: 2em;
+    width: 5em;
+    font-size: medium;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 2px 5px;
+    box-shadow: 0 0 5px black;
+}
+.search-container #submitbtn:hover{
+   scale: 1.15;
+   cursor: pointer;
+   color: white;
+   background-color: black;
+   box-shadow: 0 0 5px white;
+}
+
